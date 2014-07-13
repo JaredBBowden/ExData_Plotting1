@@ -53,5 +53,5 @@ with(subData, {
          type = "l", ylab = "Global_reactive_power", xlab = "datetime")
 })
 
-## Export this plot as a .png 
+## Close the graphics device
 dev.off()
