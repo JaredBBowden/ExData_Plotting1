@@ -19,6 +19,10 @@ subData <- subset(rawData,
 as.Date(subData$Time, "%H:%M:%S")
 subData$dateTime <- paste(subData$newDate, subData$Time)
 
+## Plotting with dev.copy has been messing up the legend margins. Going to
+## run this with the png() function. 
+png("plot03.png", width = 480, height = 480)
+
 ## Plot line graph of each of the 3 sub metering group (y-axis), against time 
 ## in days (x-axis)
 plot(as.POSIXct(subData$dateTime), subData$Sub_metering_1,
@@ -32,5 +36,4 @@ legend("topright", lty = 1, lwd = 2,
     col = c("black", "red", "blue"))
 
 ## Export this plot as a .png
-dev.copy(png, file = "plot03.png")
 dev.off()
